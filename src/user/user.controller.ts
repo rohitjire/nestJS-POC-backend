@@ -1,4 +1,4 @@
-import { Controller, Get, Injectable } from '@nestjs/common';
+import { Controller, Get, Logger } from '@nestjs/common';
 import { UserEntity } from './user.entity';
 import { UserService } from './user.service';
 

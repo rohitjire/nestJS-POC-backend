@@ -1,4 +1,4 @@
-import { CreateDateColumn, Entity } from 'typeorm';
+import { CreateDateColumn } from 'typeorm';
 
 export class GenericEntity {
   @CreateDateColumn({ default: () => 'CURRENT_TIMESTAMP', type: 'timestamp' })

@@ -10,6 +10,10 @@ import { PostModule } from './post/post.module';
 import { PostEntity } from './post/post.entity';
 import { CommentModule } from './comment/comment.module';
 import { CommentEntity } from './comment/comment.entity';
+import { LikeModule } from './like/like.module';
+import { LikeEntity } from './like/like.entity';
+import { UserFollowerModule } from './user-follower/user-follower.module';
+import { UserfollowerEntity } from './user-follower/user-follower.enity';
 
 dotenv.config();
 
@@ -21,12 +25,20 @@ dotenv.config();
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DB,
-      entities: [UserEntity, PostEntity, CommentEntity],
+      entities: [
+        UserEntity,
+        PostEntity,
+        CommentEntity,
+        LikeEntity,
+        UserfollowerEntity,
+      ],
       synchronize: true,
     }),
     UserModule,
     PostModule,
     CommentModule,
+    LikeModule,
+    UserFollowerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

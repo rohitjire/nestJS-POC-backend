@@ -1,5 +1,6 @@
 import { CommentEntity } from 'src/comment/comment.entity';
 import { GenericEntity } from 'src/generic/generic.entity';
+import { LikeEntity } from 'src/like/like.entity';
 import { UserEntity } from 'src/user/user.entity';
 import {
   Column,
@@ -33,4 +34,10 @@ export class PostEntity extends GenericEntity {
     onDelete: 'CASCADE',
   })
   comments: CommentEntity[];
+
+  @OneToMany(() => LikeEntity, (like: LikeEntity) => like.post, {
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE',
+  })
+  likes: CommentEntity[];
 }
