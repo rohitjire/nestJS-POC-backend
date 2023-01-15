@@ -4,7 +4,6 @@ import {
   Column,
   Entity,
   JoinColumn,
-  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -15,7 +14,7 @@ enum Status {
   pending = 'pending',
 }
 
-@Entity({ name: 'unfollower' })
+@Entity({ name: 'user_followers' })
 export class UserfollowerEntity extends GenericEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -24,7 +23,7 @@ export class UserfollowerEntity extends GenericEntity {
   @JoinColumn({ name: 'followers_id' })
   followers: UserEntity[];
 
-  @ManyToOne(() => UserEntity, (user: UserEntity) => user.following)
+  @ManyToOne(() => UserEntity, (user: UserEntity) => user.followings)
   @JoinColumn({ name: 'following_id' })
   following: UserEntity[];
 
